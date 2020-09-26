@@ -1,0 +1,36 @@
+#COMANDS
+
+mvn liberty:dev
+
+##DOCKER
+
+###CONNECT TO INSTANCE BASH
+```
+docker exec -it <CONTAINER_ID> bash 
+docker exec //RUN COMAND IN INSTANCE
+ 	-i //KEEPS STDIN OPEN
+ 	-t //prints the terminal out
+```
+
+##MONGODB
+
+###AUTH AS ROOT
+1. CONNECT TO DB
+```
+use admin
+```
+2. LOGIN
+```
+db.auth('root', 'rootpassword')
+```
+
+###CREATE USER
+```
+db.createUser(
+   {
+     user: "pmdbUser",
+     pwd: passwordPrompt(), 
+     roles: [ "readWrite"]
+   }
+)
+```
