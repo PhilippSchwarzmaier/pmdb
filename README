@@ -12,6 +12,9 @@ docker exec //RUN COMAND IN INSTANCE
  	-t //prints the terminal out
 ```
 
+docker inspect <docker ID>
+SEE DOCKER IMAGE settings
+
 ##MONGODB
 
 ###AUTH AS ROOT
@@ -34,3 +37,8 @@ db.createUser(
    }
 )
 ```
+
+# Settings
+config.properties
+movieFolderPathsCSV = folder to scan filenames
+movieListFile = csv file where the filename are saved
