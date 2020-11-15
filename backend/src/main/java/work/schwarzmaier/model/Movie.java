@@ -3,32 +3,76 @@ package work.schwarzmaier.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.bson.types.ObjectId;
+
+import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class Movie {
+public class Movie implements Serializable {
 
-    @JsonProperty("Title")
+	private static final long serialVersionUID = 1234L;
+
+	private ObjectId id;
+   @BsonProperty(value="Title")
     private String title;
-    @JsonProperty("Year")
+	 @BsonProperty(value="Year")
     private String year;
-    @JsonProperty("Runtime")
+	 @BsonProperty(value="Runtime")
     private String runtime;
-    @JsonProperty("Genre")
+	 @BsonProperty(value="Genre")
     private String genre;
-    @JsonProperty("Director")
+	 @BsonProperty(value="Director")
     private String director;
-    @JsonProperty("Actors")
+	 @BsonProperty(value="Actors")
     private String ctors;
-    @JsonProperty("Poster")
+	 @BsonProperty(value="Poster")
     private String poster;
-    @JsonProperty("Plot")
+	 @BsonProperty(value="Plot")
     private String plot;
-    @JsonProperty("imdbRating")
+	@BsonProperty(value="imdbRating")
     private String imdbRating;
-    @JsonProperty("Metascore")
+	@BsonProperty(value="Metascore")
     private String metascore;
-    @JsonIgnore
-    private String path;
+//    @JsonIgnore
+//    private String path;
+
+
+	public Movie() {
+	}
+
+//	@BsonCreator
+//	public Movie(@BsonProperty(value = "Title") String title,
+//				 @BsonProperty(value = "Year")String year,
+//				 @BsonProperty(value = "Runtime")String runtime,
+//				 @BsonProperty(value = "Genre")String genre,
+//				 @BsonProperty(value = "Director")String director,
+//				 @BsonProperty(value = "Ctors")String ctors,
+//				 @BsonProperty(value = "Poster") String poster,
+//				 @BsonProperty(value = "Plot")String plot,
+//				 @BsonProperty(value = "imdbRating")String imdbRating,
+//				 @BsonProperty(value = "Metascore")String metascore) {
+//		this.title = title;
+//		this.year = year;
+//		this.runtime = runtime;
+//		this.genre = genre;
+//		this.director = director;
+//		this.ctors = ctors;
+//		this.poster = poster;
+//		this.plot = plot;
+//		this.imdbRating = imdbRating;
+//		this.metascore = metascore;
+//	}
+
+	public ObjectId getId() {
+		return id;
+	}
+
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
 
 	public String getTitle() {
 		return title;
@@ -110,20 +154,14 @@ public class Movie {
 		this.metascore = metascore;
 	}
 
-	public String getPath() {
-		return path;
-	}
+//	public String getPath() {
+//		return path;
+//	}
+//
+//	public void setPath(String path) {
+//		this.path = path;
+//	}
 
-	public void setPath(String path) {
-		this.path = path;
-	}
-
-	@Override
-	public String toString() {
-		return "MovieData [title=" + title + ", year=" + year + ", runtime=" + runtime + ", genre=" + genre
-				+ ", director=" + director + ", ctors=" + ctors + ", poster=" + poster + ", plot=" + plot
-				+ ", imdbRating=" + imdbRating + ", metascore=" + metascore + ", path=" + path + "]";
-	}
 
 	
 

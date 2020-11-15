@@ -1,15 +1,14 @@
 package work.schwarzmaier.db.repo;
 
-import com.mongodb.client.MongoCollection;
 import org.bson.Document;
+import work.schwarzmaier.model.Movie;
 
 import java.util.List;
 
 public interface MovieRepository {
 
-    void save(List<Document> map);
+    List<Movie> getAllTitle();
 
-    Iterable<Document> getAllTitle();
+    Movie getFirst();
 
-    Document getFirst();
 }

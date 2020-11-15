@@ -9,4 +9,11 @@
 		httpsPort="${default.https.port}" id="defaultHttpEndpoint" host="*" />
 
 	<webApplication location="pmdb.war" contextRoot="/" />
+
+		<cors domain="/movies/one"
+			  allowedOrigins="http://localhost:3000"
+			  allowedMethods="GET"
+			  allowCredentials="true"
+			  exposeHeaders="*"/>
+
 </server>
